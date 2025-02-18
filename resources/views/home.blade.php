@@ -32,8 +32,17 @@
     <div class="col-md-6 col-lg-3">
       <div class="widget-small danger coloured-icon"><i class="icon bi bi-star fs-1"></i>
         <div class="info">
-          <h4>Entrenadoress</h4>
+          <h4>Entrenadores</h4>
           <p><b>500</b></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="widget-small primary coloured-icon"><i class="icon bi bi-people fs-1"></i>
+        <div class="info">
+          <h4>Academias</h4>
+          <p><b>5</b></p>
         </div>
       </div>
     </div>

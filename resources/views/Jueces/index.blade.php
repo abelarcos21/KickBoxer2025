@@ -4,19 +4,17 @@
 
     <div class="app-title">
         <div>
-            <h1><i class="bi bi-table"></i> Entrenadores</h1>
-            <p>Lista de Entrenadores</p>
+        <h1><i class="bi bi-table"></i> Jueces</h1>
+        <p>Lista de Jueces</p>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
-            {{-- resources/views/home.blade.php --}}
-            {{ Breadcrumbs::render('home') }}
-
-            {{-- resources/views/categories/show.blade.php --}}
-            {{-- Breadcrumbs::render('category', $category) --}}
+        <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
+        <li class="breadcrumb-item">inicio</li>
+        <li class="breadcrumb-item active"><a href="{{route('entrenador.index')}}">Jueces</a></li>
         </ul>
     </div>
     <div class="tile-title-w-btn">
-        <p><a class="btn btn-primary icon-btn" href={{route('entrenador.create')}}><i class="bi bi-plus-square me-2"></i>Agregar Nuevo	</a></p>
+        <p><a class="btn btn-primary icon-btn" href={{route('juez.create')}}><i class="bi bi-plus-square me-2"></i>Agregar Nuevo	</a></p>
         
     </div>
     
@@ -46,33 +44,33 @@
                     <th>Correo</th>
                     <th>Telefono</th>
                     <th>Escolaridad</th>
-                    <th>Grado Kickboxing</th>
+                    
                     </tr>
                 </thead>
                 <tbody>
 
-                    @forelse ($entrenadores as $entrenador)
+                    @forelse ($jueces as $juez)
 
                         <tr>
-                            <td>{{$entrenador->curp}}</td>
-                            <td>{{$entrenador->primer_nombre}}</td>
-                            <td>{{$entrenador->segundo_nombre}}</td>
-                            <td>{{$entrenador->apellido_paterno}}</td>
-                            <td>{{$entrenador->apellido_materno}}</td>
-                            <td>{{$entrenador->año_nacimiento}}</td>
-                            <td>{{$entrenador->fecha_nacimiento}}</td>
-                            <td>{{$entrenador->edad}}</td>
-                            <td>{{$entrenador->genero}}</td>
-                            <td>{{$entrenador->nacionalidad}}</td>
-                            <td>{{$entrenador->domicilio}}</td>
-                            <td>{{$entrenador->colonia}}</td>
-                            <td>{{$entrenador->municipio}}</td>
-                            <td>{{$entrenador->codigo_postal}}</td>
-                            <td>{{$entrenador->estado}}</td>
-                            <td>{{$entrenador->correo}}</td>
-                            <td>{{$entrenador->telefono}}</td>
-                            <td>{{$entrenador->escolaridad}}</td>
-                            <td>{{$entrenador->grado_kickboxing}}</td>
+                            <td>{{$juez->curp}}</td>
+                            <td>{{$juez->primer_nombre}}</td>
+                            <td>{{$juez->segundo_nombre}}</td>
+                            <td>{{$juez->apellido_paterno}}</td>
+                            <td>{{$juez->apellido_materno}}</td>
+                            <td>{{$juez->año_nacimiento}}</td>
+                            <td>{{$juez->fecha_nacimiento}}</td>
+                            <td>{{$juez->edad}}</td>
+                            <td>{{$juez->genero}}</td>
+                            <td>{{$juez->nacionalidad}}</td>
+                            <td>{{$juez->domicilio}}</td>
+                            <td>{{$juez->colonia}}</td>
+                            <td>{{$juez->municipio}}</td>
+                            <td>{{$juez->codigo_postal}}</td>
+                            <td>{{$juez->estado}}</td>
+                            <td>{{$juez->correo}}</td>
+                            <td>{{$juez->telefono}}</td>
+                            <td>{{$juez->escolaridad}}</td>
+                           
                         </tr>
                         
                     @empty

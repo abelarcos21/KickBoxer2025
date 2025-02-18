@@ -10,7 +10,7 @@
     <ul class="app-breadcrumb breadcrumb">
       <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
       <li class="breadcrumb-item">Inicio</li>
-      <li class="breadcrumb-item"><a href="{{route('entrenador.index')}}">Entrenadores</a></li>
+      <li class="breadcrumb-item"><a href="{{route('entrenador.index')}}">Jueces</a></li>
     </ul>
   </div>
 
@@ -19,11 +19,11 @@
             <div class="col-md-8">
                 <div class="card shadow">
                     <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0">Registro de Entrenador</h4>
+                        <h4 class="mb-0">Registro de Juez</h4>
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('entrenador.store') }}">
+                        <form method="POST" action="{{ route('juez.store') }}">
                             @csrf
 
                             <!-- Sección 1: Información Personal -->
@@ -261,17 +261,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label for="grado_kickboxing" class="form-label">Grado de Kickboxing</label>
-                                        <input type="text" 
-                                            class="form-control @error('grado_kickboxing') is-invalid @enderror" 
-                                            id="grado_kickboxing" 
-                                            name="grado_kickboxing" 
-                                            value="{{ old('grado_kickboxing') }}">
-                                        @error('grado_kickboxing')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+                                  
                                 </div>
                             </div>
 

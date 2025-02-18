@@ -17,3 +17,13 @@ Route::group(['prefix' => 'entrenadores'], function(){
     Route::post('store', [App\Http\Controllers\EntrenadorController::class, 'store'])->name('entrenador.store');
 
 });
+
+
+//RUTAS PARA JUECES
+Route::group(['prefix' => 'jueces'], function(){
+    Route::get('', [App\Http\Controllers\JuezController::class, 'index'])->name('juez.index');
+    Route::get('create', [App\Http\Controllers\JuezController::class, 'create'])->name('juez.create');
+    Route::post('store', [App\Http\Controllers\JuezController::class, 'store'])->name('juez.store');
+
+});
+
