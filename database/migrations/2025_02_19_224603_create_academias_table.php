@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('academias', function (Blueprint $table) {
             $table->id();
+
             $table->string('nombre');                // Nombre de la academia
+            $table->foreignId('asociacion_id')->constrained()->onDelete('cascade');
             $table->string('correo')->unique();      // Correo
             $table->string('calle');                 // Calle
             $table->string('numero_interior')->nullable();  // Número interior
@@ -26,6 +28,11 @@ return new class extends Migration
             $table->string('link_web_red_social')->nullable(); // Link web o red social
             $table->string('link_google_maps')->nullable();    // Link Google Maps
             $table->timestamps();
+
+            //$table->integer('asociacion_id')->unsigned();
+            //$table->foreign('asociacion_id')->references('id')->on('asociacions')->onDelete('cascade');
+
+            
         });
     }
 

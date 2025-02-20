@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('asociacions', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            // ... otros campos
             $table->timestamps();
+           
         });
     }
 

@@ -1,4 +1,4 @@
-@extends('layouts.panel')
+{{--@extends('layouts.panel')
 
 @section('content')
 
@@ -143,5 +143,33 @@
         </script>
     @endpush
 
+@endsection--}}
+
+
+@extends('layouts.panel')
+
+@section('content')
+<div class="container">
+    <h1>Crear Nueva Academia</h1>
+    
+    <form action="{{ route('academia.store') }}" method="POST">
+        @csrf
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="association_id">Asociación:</label>
+            <select name="association_id" class="form-control" required>
+                @foreach($asociaciones as $asociacion)
+                <option value="{{ $asociacion->id }}">{{ $asociacion->nombre }}</option>
+                @endforeach
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+    </form>
+</div>
 @endsection
  

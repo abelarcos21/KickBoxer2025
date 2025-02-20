@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Asociacion;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Academia>
@@ -19,6 +20,7 @@ class AcademiaFactory extends Factory
         return [
             //datos falsos
             'nombre' => fake()->company(),
+            'asociacion_id' => Asociacion::factory(),
             'correo' => fake()->unique()->safeEmail(),
             'calle' => fake()->streetName(),
             'numero_interior' => fake()->optional(70)->bothify('?##'), // 70% de probabilidad de generar dato

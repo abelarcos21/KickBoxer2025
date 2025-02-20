@@ -4,10 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Academia extends Model
 {
     use HasFactory;
+    
+    //una academia pertenece a una asociacion
+    public function Asociacion(): BelongsTO{
+        return $this->belongsTo(Asociacion::class);
+    }
+
+    
     //campos que seran llenados
     protected $fillable = [
 

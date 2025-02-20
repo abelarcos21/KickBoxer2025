@@ -43,3 +43,11 @@ Route::group(['prefix' => 'afiliaciones'], function(){
 
 });
 
+Route::group(['prefix' => 'asociaciones'], function(){
+    Route::get('', [App\Http\Controllers\AsociacionController::class, 'index'])->name('asociacion.index');
+    Route::get('create', [App\Http\Controllers\AsociacionController::class, 'create'])->name('asociacion.create');
+    Route::post('store', [App\Http\Controllers\AsociacionController::class, 'store'])->name('asociacion.store');
+    Route::get('{asociacion}/show', [App\Http\Controllers\AsociacionController::class, 'show'])->name('asociacion.show');
+
+});
+
