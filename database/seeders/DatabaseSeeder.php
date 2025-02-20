@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             EntrenadorSeeder::class,
             JuezSeeder::class,
             AcademiaSeeder::class,
+            AfiliacionSeeder::class,
         ]);
     }
 }
