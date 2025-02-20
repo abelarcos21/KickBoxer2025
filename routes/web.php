@@ -27,3 +27,19 @@ Route::group(['prefix' => 'jueces'], function(){
 
 });
 
+//RUTAS PARA ACADEMIAS
+Route::group(['prefix' => 'academias'], function(){
+    Route::get('', [App\Http\Controllers\AcademiaController::class, 'index'])->name('academia.index');
+    Route::get('create', [App\Http\Controllers\AcademiaController::class, 'create'])->name('academia.create');
+    Route::post('store', [App\Http\Controllers\AcademiaController::class, 'store'])->name('academia.store');
+
+});
+
+//RUTA PARA SOLICITUD DE AFILIACION 2025
+Route::group(['prefix' => 'afiliaciones'], function(){
+
+    Route::get('create', [App\Http\Controllers\AfiliacionController::class, 'create'])->name('afiliacion.create');
+    Route::get('store', [App\Http\Controllers\AfiliacionController::class, 'store'])->name('afiliacion.store');
+
+});
+

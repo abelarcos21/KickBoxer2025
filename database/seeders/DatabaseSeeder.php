@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             EntrenadorSeeder::class,
             JuezSeeder::class,
+            AcademiaSeeder::class,
         ]);
     }
 }

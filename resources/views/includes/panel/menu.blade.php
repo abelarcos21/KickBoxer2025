@@ -8,6 +8,8 @@
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item" href="{{route('home')}}"><i class="app-menu__icon bi bi-speedometer"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li><a class="app-menu__item" href="{{route('afiliacion.create')}}"><i class="app-menu__icon bi bi-ui-checks"></i><span class="app-menu__label">Solicitud de Afiliacion 2025</span></a></li>
+
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon bi bi-laptop"></i><span class="app-menu__label">Deportistas</span><i class="treeview-indicator bi bi-chevron-right"></i></a>
           <ul class="treeview-menu">
        
@@ -29,7 +31,7 @@
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon bi bi-table"></i><span class="app-menu__label">Academias</span><i class="treeview-indicator bi bi-chevron-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="{{route('juez.index')}}"><i class="icon bi bi-circle-fill"></i> Lista de Academias</a></li>
+            <li><a class="treeview-item" href="{{route('academia.index')}}"><i class="icon bi bi-circle-fill"></i> Lista de Academias</a></li>
         
           </ul>
         </li>

@@ -8,11 +8,9 @@
             <p>Lista de Entrenadores</p>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
-            {{-- resources/views/home.blade.php --}}
-            {{ Breadcrumbs::render('home') }}
-
-            {{-- resources/views/categories/show.blade.php --}}
-            {{-- Breadcrumbs::render('category', $category) --}}
+            <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
+            <li class="breadcrumb-item">inicio</li>
+            <li class="breadcrumb-item active"><a href="{{route('entrenador.index')}}">Entrenadores</a></li>
         </ul>
     </div>
     <div class="tile-title-w-btn">
