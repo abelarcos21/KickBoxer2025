@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Juez;
+use App\Models\Academia;
+use App\Models\Asociacion;
+use App\Models\Entrenador;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $entrenadores = Entrenador::all();
+        $jueces = Juez::all();
+        $academias = Academia::all();
+        $asociaciones = Asociacion::all();
+        return view('home', compact(
+            'entrenadores','jueces', 'academias', 'asociaciones'
+        ));
     }
 }
