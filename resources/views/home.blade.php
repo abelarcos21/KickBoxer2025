@@ -6,9 +6,17 @@
       <h1><i class="bi bi-speedometer"></i> Dashboard</h1>
       <p>Asociacion Estatal de Kickboxing Campeche 2025</p>
     </div>
+    
     <ul class="app-breadcrumb breadcrumb">
-      <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
-      <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+      <img 
+      src="{{ asset('images/1000865765.png') }}" 
+      alt="Logo" 
+      class="img-fluid" width="135">
+      <img 
+      src="{{ asset('images/logofenakibmexico2025.webp') }}" 
+      alt="Logo" 
+      class="img-fluid" width="135">
+      
     </ul>
   </div>
   <div class="row">

@@ -35,6 +35,12 @@
         
           </ul>
         </li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon bi bi-table"></i><span class="app-menu__label">Asociaciones</span><i class="treeview-indicator bi bi-chevron-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="{{route('asociacion.index')}}"><i class="icon bi bi-circle-fill"></i> Lista de Asociaciones</a></li>
+        
+          </ul>
+        </li>
        
       </ul>
     </aside>

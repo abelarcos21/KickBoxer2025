@@ -1,4 +1,4 @@
-{{--@extends('layouts.panel')
+@extends('layouts.panel')
 
 @section('content')
 
@@ -27,14 +27,23 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 mb-3">
+                            <label for="asociacion_id">Asociación:</label>
+                            <select name="asociacion_id" class="form-control" required>
+                                @foreach($asociaciones as $asociacion)
+                                <option value="{{ $asociacion->id }}">{{ $asociacion->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-3">
                             <label for="nombre" class="form-label">Nombre de la Academia <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="nombre" name="nombre" required maxlength="255">
                         </div>
                         
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label for="correo" class="form-label">Correo Electrónico <span class="text-danger">*</span></label>
                             <input type="email" class="form-control" id="correo" name="correo" required>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -143,10 +152,10 @@
         </script>
     @endpush
 
-@endsection--}}
+@endsection
 
 
-@extends('layouts.panel')
+{{--@extends('layouts.panel')
 
 @section('content')
 <div class="container">
@@ -171,5 +180,5 @@
         <button type="submit" class="btn btn-primary mt-3">Guardar</button>
     </form>
 </div>
-@endsection
+@endsection--}}
  

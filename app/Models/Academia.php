@@ -19,7 +19,8 @@ class Academia extends Model
     //campos que seran llenados
     protected $fillable = [
 
-        'nombre',                // Nombre de la academia
+        'nombre',
+        'asociacion_id',                // Nombre de la academia
         'correo',      // Correo
         'calle',        // Calle
         'numero_interior',  // Número interior
