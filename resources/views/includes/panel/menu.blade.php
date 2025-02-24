@@ -13,7 +13,7 @@
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon bi bi-laptop"></i><span class="app-menu__label">Deportistas</span><i class="treeview-indicator bi bi-chevron-right"></i></a>
           <ul class="treeview-menu">
        
-            <li><a class="treeview-item" href="ui-cards.html"><i class="icon bi bi-circle-fill"></i> Lista Deportistas</a></li>
+            <li><a class="treeview-item" href="ui-cards.html"><i class="icon bi bi-circle-fill"></i> Lista Atletas</a></li>
            
           </ul>
         </li>
