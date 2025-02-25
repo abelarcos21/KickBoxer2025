@@ -1,4 +1,4 @@
-{{--@extends('layouts.panel')
+@extends('layouts.panel')
 
 @section('content')
 
@@ -27,17 +27,15 @@
                 <thead>
                     <tr>
                     <th>Nombre</th>
+                    <th>Asociación</th>
                     <th>Correo</th>
                     <th>Calle</th>
-                    <th>Numero Interior</th>
-                    <th>Numero Exterior</th>
                     <th>Estado</th>
                     <th>Colonia</th>
                     <th>Municipio</th>
                     <th>Codigo Postal</th>
                     <th>Telefono</th>
-                    <th>link_web_red_social</th>
-                    <th>link_google_maps</th>
+                    <th>Fecha Creación</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,17 +44,16 @@
 
                         <tr>
                             <td>{{$academia->nombre}}</td>
+                            <td>{{ $academia->asociacion->nombre }}</td>
                             <td>{{$academia->correo}}</td>
                             <td>{{$academia->calle}}</td>
-                            <td>{{$academia->numero_interior}}</td>
-                            <td>{{$academia->numero_exterior}}</td>
                             <td>{{$academia->estado}}</td>
                             <td>{{$academia->colonia}}</td>
                             <td>{{$academia->municipio}}</td>
                             <td>{{$academia->codigo_postal}}</td>
                             <td>{{$academia->telefono}}</td>
-                            <td>{{$academia->link_web_red_social}}</td>
-                            <td>{{$academia->link_google_maps}}</td>
+                            <td>{{ $academia->created_at->format('d/m/Y') }}</td>
+                           
                         </tr>
                         
                     @empty
@@ -87,32 +84,5 @@
     <script type="text/javascript" src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/plugins/dataTables.bootstrap.min.js')}}"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
-@stop--}}
+@stop
 
-@extends('layouts.panel')
-
-@section('content')
-<div class="container">
-    <h1>Academias</h1>
-    <a href="{{ route('academia.create') }}" class="btn btn-primary mb-3">Nueva Academia</a>
-    
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Asociación</th>
-                <th>Fecha Creación</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($academias as $academia)
-            <tr>
-                <td>{{ $academia->nombre }}</td>
-                <td>{{ $academia->asociacion->nombre }}</td>
-                <td>{{ $academia->created_at->format('d/m/Y') }}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
-@endsection
