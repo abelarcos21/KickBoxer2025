@@ -29,29 +29,20 @@
                         
                         <div class="row g-3">
 
-                           
-
                             <div class="col-md-6">
                                 <label for="fecha_nacimiento" class="form-label">Fecha Solicitud</label>
                                 <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" 
                                     value="{{ old('fecha_nacimiento') }}" required>
                             </div>
 
-                            <!-- Género y Nacionalidad -->
+                            <!-- Asociaciones-->
                             <div class="col-md-6">
-                                <label for="genero" class="form-label">Asociacion <span class="text-danger">*</span></label>
-                                <select class="form-select @error('genero') is-invalid @enderror" 
-                                        id="genero" 
-                                        name="genero" 
-                                        required>
-                                    <option value="">Seleccione...</option>
-                                    <option value="Masculino" {{ old('genero') == 'Masculino' ? 'selected' : '' }}>Murata warriors</option>
-                                    <option value="Femenino" {{ old('genero') == 'Femenino' ? 'selected' : '' }}>Guerreros shogun</option>
-                                    <option value="Otro" {{ old('genero') == 'Otro' ? 'selected' : '' }}>Otro</option>
+                                <label for="asociacion_id">Asociación:</label>
+                                <select name="asociacion_id" class="form-control" required>
+                                    @foreach($asociaciones as $asociacion)
+                                    <option value="{{ $asociacion->id }}">{{ $asociacion->nombre }}</option>
+                                    @endforeach
                                 </select>
-                                @error('genero')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
                             </div>
 
                             <div class="col-md-6">
@@ -64,7 +55,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label for="curp" class="form-label">CURP</label>
+                                <label for="curp" class="form-label">Curp</label>
                                 <input type="text" class="form-control" id="curp" name="curp" 
                                     pattern="[A-Z0-9]{18}" value="{{ old('curp') }}" required>
                                 <div class="form-text">Ejemplo: FUGASG900HCCNLDO1</div>

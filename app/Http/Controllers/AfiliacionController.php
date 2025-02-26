@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Afiliacion;
+use App\Models\Asociacion;
 
 class AfiliacionController extends Controller
 {
     public function create(){
 
-        return view('solicitudafiliacion.create');
+        $asociaciones = Asociacion::all();
+        return view('solicitudafiliacion.create', compact('asociaciones'));
     }
 
     public function store(Request $request){

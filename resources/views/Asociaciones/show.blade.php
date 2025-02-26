@@ -31,17 +31,17 @@
 
     <div class="app-title">
         <div>
-            <h1><i class="bi bi-table"></i> Asociaciones</h1>
-            <p>Lista de Asociaciones</p>
+            <h1><i class="bi bi-table"></i> Nombre De La Asociacion: {{ $asociacion->nombre }}</h1>
+            <p>Lista de Academias</p>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
             <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
             <li class="breadcrumb-item">inicio</li>
-            <li class="breadcrumb-item active"><a href="{{route('entrenador.index')}}">Asociaciones</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('asociacion.index')}}">Asociaciones</a></li>
         </ul>
     </div>
     <div class="tile-title-w-btn">
-        <p><a class="btn btn-primary icon-btn" href={{route('asociacion.create')}}><i class="bi bi-plus-square me-2"></i>Agregar Nuevo	</a></p>
+        <p><a class="btn btn-primary icon-btn" href={{route('asociacion.index')}}><i class="bi bi-reply fs-5"></i>Regresar	</a></p>
         
     </div>
     
@@ -54,7 +54,7 @@
                 <thead>
                     <tr>
                     <th>#ID</th>
-                    <th>Nombre</th>
+                    <th>Nombre de la Academia</th>
                     <th>Fecha Creacion</th>
                     
                     </tr>
@@ -72,7 +72,7 @@
                         
                     @empty
 
-                        <span>no hay datos que mostrar</span>
+                        <span>No cuenta con Academias</span>
                         
                     @endforelse
                         
