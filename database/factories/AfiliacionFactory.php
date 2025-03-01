@@ -19,6 +19,7 @@ class AfiliacionFactory extends Factory
     {
         return [
             'folio' => 'AFI-' . now()->format('YmdHis') . Str::random(4),
+            'fecha_solicitud' => $this->faker->dateTime(),
             'nombre_solicitante' => $this->faker->name(),
             'curp' => $this->faker->regexify('[A-Z]{4}[0-9]{6}[A-Z]{6}[0-9]{2}'),
             'sexo' => $this->faker->randomElement(['H', 'M']),

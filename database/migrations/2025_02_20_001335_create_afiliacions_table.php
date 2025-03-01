@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('afiliacions', function (Blueprint $table) {
             $table->id();
             $table->string('folio')->unique();
+            $table->date('fecha_solicitud');
             $table->string('nombre_solicitante');
             $table->char('curp', 18)->unique();
             $table->char('sexo', 1);

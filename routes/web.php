@@ -37,12 +37,13 @@ Route::group(['prefix' => 'academias'], function(){
 
 //RUTA PARA SOLICITUD DE AFILIACION 2025
 Route::group(['prefix' => 'afiliaciones'], function(){
-
+    Route::get('', [App\Http\Controllers\AfiliacionController::class, 'index'])->name('afiliacion.index');
     Route::get('create', [App\Http\Controllers\AfiliacionController::class, 'create'])->name('afiliacion.create');
-    Route::get('store', [App\Http\Controllers\AfiliacionController::class, 'store'])->name('afiliacion.store');
+    Route::post('store', [App\Http\Controllers\AfiliacionController::class, 'store'])->name('afiliacion.store');
 
 });
 
+//RUTAS PARA LAS ASOCIACIONES
 Route::group(['prefix' => 'asociaciones'], function(){
     Route::get('', [App\Http\Controllers\AsociacionController::class, 'index'])->name('asociacion.index');
     Route::get('create', [App\Http\Controllers\AsociacionController::class, 'create'])->name('asociacion.create');

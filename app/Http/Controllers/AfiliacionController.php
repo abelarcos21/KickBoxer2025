@@ -8,6 +8,15 @@ use App\Models\Asociacion;
 
 class AfiliacionController extends Controller
 {
+
+    public function index(){
+
+        $afiliaciones = Afiliacion::all();
+
+        return view('solicitudafiliacion.index', compact('afiliaciones'));
+
+    }
+
     public function create(){
 
         $asociaciones = Asociacion::all();
@@ -18,6 +27,7 @@ class AfiliacionController extends Controller
         //validacion de datos
 
         $validated = $request->validate([
+            'fecha_solicitud' => 'required|date',
             'nombre_solicitante' => 'required|string|max:255',
             'curp' => 'required|regex:/^[A-Z0-9]{18}$/|unique:afiliaciones',
             'sexo' => 'required|in:H,M',

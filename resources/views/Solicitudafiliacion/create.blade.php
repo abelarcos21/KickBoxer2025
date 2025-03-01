@@ -30,9 +30,9 @@
                         <div class="row g-3">
 
                             <div class="col-md-6">
-                                <label for="fecha_nacimiento" class="form-label">Fecha Solicitud</label>
-                                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" 
-                                    value="{{ old('fecha_nacimiento') }}" required>
+                                <label for="fecha_solicitud" class="form-label">Fecha Solicitud</label>
+                                <input type="date" class="form-control" id="fecha_solicitud" name="fecha_solicitud" 
+                                    value="{{ old('fecha_solicitud') }}" required>
                             </div>
 
                             <!-- Asociaciones-->

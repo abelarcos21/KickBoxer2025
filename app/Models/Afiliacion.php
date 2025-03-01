@@ -11,6 +11,7 @@ class Afiliacion extends Model
     //campos
     protected $fillable = [
         'folio',
+        'fecha_solicitud',
         'nombre_solicitante',
         'curp',
         'sexo',

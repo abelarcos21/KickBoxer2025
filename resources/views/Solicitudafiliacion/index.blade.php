@@ -4,17 +4,17 @@
 
     <div class="app-title">
         <div>
-            <h1><i class="bi bi-table"></i> Academias</h1>
-            <p>Lista de Academias</p>
+            <h1><i class="bi bi-table"></i> Deportistas</h1>
+            <p>Lista de Atletas</p>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
             <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
             <li class="breadcrumb-item">inicio</li>
-            <li class="breadcrumb-item active"><a href="{{route('entrenador.index')}}">Academias</a></li>
+            <li class="breadcrumb-item active"><a href="{{route('afiliacion.index')}}">Deportistas</a></li>
         </ul>
     </div>
     <div class="tile-title-w-btn">
-        <p><a class="btn btn-primary icon-btn" href={{route('academia.create')}}><i class="bi bi-plus-square me-2"></i>Agregar Nuevo	</a></p>
+        <p><a class="btn btn-primary icon-btn" href={{route('afiliacion.create')}}><i class="bi bi-plus-square me-2"></i>Nueva Afiliacion	</a></p>
         
     </div>
     
@@ -26,34 +26,42 @@
                 <table class="table table-hover table-bordered table-striped" id="sampleTable">
                 <thead>
                     <tr>
-                    <th>Nombre</th>
-                    <th>Asociación</th>
+                    <th>Folio</th>
+                    <th>Nombre Solicitante</th>
+                    <th>Curp</th>
+                    <th>Sexo</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Telefono Movil</th>
                     <th>Correo</th>
+                    <th>Nombre Academia</th>
                     <th>Calle</th>
-                    <th>Estado</th>
+                    <th>N° Exterior</th>
                     <th>Colonia</th>
                     <th>Municipio</th>
                     <th>Codigo Postal</th>
-                    <th>Telefono</th>
-                    <th>Fecha Creación</th>
+                    <th>Red Social</th>
+                   
                     </tr>
                 </thead>
                 <tbody>
 
-                    @forelse ($academias as $academia)
+                    @forelse ($afiliaciones as $afiliacion)
 
                         <tr>
-                            <td>{{$academia->nombre}}</td>
-                            <td>{{ $academia->asociacion->nombre }}</td>
-                            <td>{{$academia->correo}}</td>
-                            <td>{{$academia->calle}}</td>
-                            <td>{{$academia->estado}}</td>
-                            <td>{{$academia->colonia}}</td>
-                            <td>{{$academia->municipio}}</td>
-                            <td>{{$academia->codigo_postal}}</td>
-                            <td>{{$academia->telefono}}</td>
-                            <td>{{ $academia->created_at->format('d/m/Y') }}</td>
-                           
+                            <td>{{$afiliacion->folio}}</td>
+                            <td>{{$afiliacion->nombre_solicitante}}</td>
+                            <td>{{$afiliacion->curp}}</td>
+                            <td>{{$afiliacion->sexo}}</td>
+                            <td>{{$afiliacion->fecha_nacimiento}}</td>
+                            <td>{{$afiliacion->telefono_movil}}</td>
+                            <td>{{$afiliacion->email}}</td>
+                            <td>{{$afiliacion->nombre_escuela}}</td>
+                            <td>{{$afiliacion->calle}}</td>
+                            <td>{{$afiliacion->numero_exterior}}</td>
+                            <td>{{$afiliacion->colonia}}</td>
+                            <td>{{$afiliacion->municipio}}</td>
+                            <td>{{$afiliacion->codigo_postal}}</td>
+                            <td>{{$afiliacion->red_social}}</td>
                         </tr>
                         
                     @empty
@@ -85,4 +93,3 @@
     <script type="text/javascript" src="{{asset('js/plugins/dataTables.bootstrap.min.js')}}"></script>
     <script type="text/javascript">$('#sampleTable').DataTable();</script>
 @stop
-

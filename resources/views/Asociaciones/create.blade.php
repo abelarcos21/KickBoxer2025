@@ -26,6 +26,7 @@
           </div>
           
           <div class="mb-3 col-md-4 align-self-end">
+            <a href="{{ route('asociacion.index') }}" class="btn btn-secondary"><i class="bi bi-x-circle-fill me-2"></i>Cancelar</a>
             <button class="btn btn-primary" type="submit"><i class="bi bi-check-circle-fill me-2"></i>Guardar</button>
           </div>
         </form>

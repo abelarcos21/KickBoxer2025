@@ -28,7 +28,7 @@
       <div class="widget-small primary coloured-icon"><i class="icon bi bi-people fs-1"></i>
         <div class="info">
           <h4>Deportistas</h4>
-          <p><b>no definido</b></p>
+          <p><b>{{$afiliaciones->count()}}</b></p>
         </div>
       </div>
     </div>

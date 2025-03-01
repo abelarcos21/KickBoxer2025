@@ -7,7 +7,7 @@ use App\Models\Juez;
 use App\Models\Academia;
 use App\Models\Asociacion;
 use App\Models\Entrenador;
-
+use App\Models\Afiliacion;
 class HomeController extends Controller
 {
     /**
@@ -31,8 +31,9 @@ class HomeController extends Controller
         $jueces = Juez::all();
         $academias = Academia::all();
         $asociaciones = Asociacion::all();
+        $afiliaciones = Afiliacion::all();
         return view('home', compact(
-            'entrenadores','jueces', 'academias', 'asociaciones'
+            'entrenadores','jueces', 'academias', 'asociaciones', 'afiliaciones'
         ));
     }
 }

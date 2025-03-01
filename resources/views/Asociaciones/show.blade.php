@@ -31,7 +31,7 @@
 
     <div class="app-title">
         <div>
-            <h1><i class="bi bi-table"></i> Nombre De La Asociacion: {{ $asociacion->nombre }}</h1>
+            <h1><i class="bi bi-table"></i> Nombre De La Asociacion: <span class="me-1 badge bg-secondary">{{ $asociacion->nombre }}</span></h1>
             <p>Lista de Academias</p>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
