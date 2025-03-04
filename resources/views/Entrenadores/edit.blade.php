@@ -5,7 +5,7 @@
 <div class="app-title">
     <div>
       <h1><i class="bi bi-ui-checks"></i> Entrenadores</h1>
-      <p>Lista Entrenadores</p>
+      <p>Editar Entrenador</p>
     </div>
     <ul class="app-breadcrumb breadcrumb">
       <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
@@ -18,13 +18,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card shadow">
-                    <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0">Registro de Entrenador</h4>
+                    <div class="card-header bg-primary text-white text-center">
+                        <h4 class="mb-0">Editar Entrenador</h4>
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('entrenador.store') }}">
+                        <form method="POST" action="{{ route('entrenador.update', $entrenador) }}">
                             @csrf
+                            @method('PUT')
 
                             <!-- Sección 1: Información Personal -->
                             <div class="mb-4">
@@ -38,7 +39,7 @@
                                             class="form-control @error('curp') is-invalid @enderror" 
                                             id="curp" 
                                             name="curp" 
-                                            value="{{ old('curp') }}" 
+                                            value="{{ old('curp', $entrenador->curp) }}" 
                                             maxlength="18"
                                             required>
                                         @error('curp')
@@ -53,7 +54,7 @@
                                             class="form-control @error('fecha_nacimiento') is-invalid @enderror" 
                                             id="fecha_nacimiento" 
                                             name="fecha_nacimiento" 
-                                            value="{{ old('fecha_nacimiento') }}" 
+                                            value="{{ old('fecha_nacimiento', $entrenador->fecha_nacimiento) }}" 
                                             required>
                                         @error('fecha_nacimiento')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -67,7 +68,7 @@
                                             class="form-control @error('primer_nombre') is-invalid @enderror" 
                                             id="primer_nombre" 
                                             name="primer_nombre" 
-                                            value="{{ old('primer_nombre') }}" 
+                                            value="{{ old('primer_nombre', $entrenador->primer_nombre) }}" 
                                             required>
                                         @error('primer_nombre')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -80,7 +81,7 @@
                                             class="form-control @error('segundo_nombre') is-invalid @enderror" 
                                             id="segundo_nombre" 
                                             name="segundo_nombre" 
-                                            value="{{ old('segundo_nombre') }}">
+                                            value="{{ old('segundo_nombre', $entrenador->segundo_nombre) }}">
                                         @error('segundo_nombre')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -93,7 +94,7 @@
                                             class="form-control @error('apellido_paterno') is-invalid @enderror" 
                                             id="apellido_paterno" 
                                             name="apellido_paterno" 
-                                            value="{{ old('apellido_paterno') }}" 
+                                            value="{{ old('apellido_paterno', $entrenador->apellido_paterno) }}" 
                                             required>
                                         @error('apellido_paterno')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -106,7 +107,7 @@
                                             class="form-control @error('apellido_materno') is-invalid @enderror" 
                                             id="apellido_materno" 
                                             name="apellido_materno" 
-                                            value="{{ old('apellido_materno') }}" 
+                                            value="{{ old('apellido_materno', $entrenador->apellido_materno) }}" 
                                             required>
                                         @error('apellido_materno')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -121,9 +122,9 @@
                                                 name="genero" 
                                                 required>
                                             <option value="">Seleccione...</option>
-                                            <option value="Masculino" {{ old('genero') == 'Masculino' ? 'selected' : '' }}>Masculino</option>
-                                            <option value="Femenino" {{ old('genero') == 'Femenino' ? 'selected' : '' }}>Femenino</option>
-                                            <option value="Otro" {{ old('genero') == 'Otro' ? 'selected' : '' }}>Otro</option>
+                                            <option value="Masculino" {{ old('genero', $entrenador->genero) == 'Masculino' ? 'selected' : '' }}>Masculino</option>
+                                            <option value="Femenino" {{ old('genero', $entrenador->genero) == 'Femenino' ? 'selected' : '' }}>Femenino</option>
+                                            <option value="Otro" {{ old('genero', $entrenador->genero) == 'Otro' ? 'selected' : '' }}>Otro</option>
                                         </select>
                                         @error('genero')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -136,7 +137,7 @@
                                             class="form-control @error('nacionalidad') is-invalid @enderror" 
                                             id="nacionalidad" 
                                             name="nacionalidad" 
-                                            value="{{ old('nacionalidad') }}" 
+                                            value="{{ old('nacionalidad', $entrenador->nacionalidad) }}" 
                                             required>
                                         @error('nacionalidad')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -155,7 +156,7 @@
                                             class="form-control @error('domicilio') is-invalid @enderror" 
                                             id="domicilio" 
                                             name="domicilio" 
-                                            value="{{ old('domicilio') }}" 
+                                            value="{{ old('domicilio', $entrenador->domicilio) }}" 
                                             required>
                                         @error('domicilio')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -168,7 +169,7 @@
                                             class="form-control @error('colonia') is-invalid @enderror" 
                                             id="colonia" 
                                             name="colonia" 
-                                            value="{{ old('colonia') }}" 
+                                            value="{{ old('colonia', $entrenador->colonia) }}" 
                                             required>
                                         @error('colonia')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -181,7 +182,7 @@
                                             class="form-control @error('municipio') is-invalid @enderror" 
                                             id="municipio" 
                                             name="municipio" 
-                                            value="{{ old('municipio') }}" 
+                                            value="{{ old('municipio', $entrenador->municipio) }}" 
                                             required>
                                         @error('municipio')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -194,7 +195,7 @@
                                             class="form-control @error('codigo_postal') is-invalid @enderror" 
                                             id="codigo_postal" 
                                             name="codigo_postal" 
-                                            value="{{ old('codigo_postal') }}" 
+                                            value="{{ old('codigo_postal', $entrenador->codigo_postal) }}" 
                                             maxlength="5"
                                             required>
                                         @error('codigo_postal')
@@ -208,7 +209,7 @@
                                             class="form-control @error('estado') is-invalid @enderror" 
                                             id="estado" 
                                             name="estado" 
-                                            value="{{ old('estado') }}" 
+                                            value="{{ old('estado', $entrenador->estado) }}" 
                                             required>
                                         @error('estado')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -227,7 +228,7 @@
                                             class="form-control @error('correo') is-invalid @enderror" 
                                             id="correo" 
                                             name="correo" 
-                                            value="{{ old('correo') }}" 
+                                            value="{{ old('correo', $entrenador->correo) }}" 
                                             required>
                                         @error('correo')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -240,7 +241,7 @@
                                             class="form-control @error('telefono') is-invalid @enderror" 
                                             id="telefono" 
                                             name="telefono" 
-                                            value="{{ old('telefono') }}" 
+                                            value="{{ old('telefono', $entrenador->telefono) }}" 
                                             maxlength="10"
                                             required>
                                         @error('telefono')
@@ -254,7 +255,7 @@
                                             class="form-control @error('escolaridad') is-invalid @enderror" 
                                             id="escolaridad" 
                                             name="escolaridad" 
-                                            value="{{ old('escolaridad') }}" 
+                                            value="{{ old('escolaridad', $entrenador->escolaridad) }}" 
                                             required>
                                         @error('escolaridad')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -267,7 +268,7 @@
                                             class="form-control @error('grado_kickboxing') is-invalid @enderror" 
                                             id="grado_kickboxing" 
                                             name="grado_kickboxing" 
-                                            value="{{ old('grado_kickboxing') }}">
+                                            value="{{ old('grado_kickboxing', $entrenador->grado_kickboxing) }}">
                                         @error('grado_kickboxing')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -276,7 +277,7 @@
                             </div>
 
                             <div class="d-grid mt-4">
-                                <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Guardar Cambios</button>
                             </div>
                         </form>
                     </div>

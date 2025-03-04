@@ -39,7 +39,7 @@
                         <tr>
                             <td>{{ $asociacion->id }}</td>
                             <td>{{ $asociacion->nombre }}</td>
-                            <td>{{ $asociacion->academias->count() }}</td>
+                            <td><span class="badge bg-primary rounded-pill">{{ $asociacion->academias->count() }}</span></td>
                             <td>
                                 <a href="{{ route('asociacion.show', $asociacion) }}" class="btn btn-primary"><i class="bi bi-eye"></i>Ver Academias</a>
                             </td>

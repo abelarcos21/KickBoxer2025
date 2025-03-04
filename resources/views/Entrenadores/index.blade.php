@@ -45,6 +45,7 @@
                     <th>Telefono</th>
                     <th>Escolaridad</th>
                     <th>Grado Kickboxing</th>
+                    <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,6 +72,13 @@
                             <td>{{$entrenador->telefono}}</td>
                             <td>{{$entrenador->escolaridad}}</td>
                             <td>{{$entrenador->grado_kickboxing}}</td>
+                            <td >
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" href="{{route('entrenador.edit', $entrenador)}}"><i class="bi bi-pencil-square fs-5"></i>Editar</a>
+                                    <a class="btn btn-primary" href="#"><i class="bi bi-trash fs-5"></i>Eliminar</a>
+                                </div>
+                                
+                            </td>
                         </tr>
                         
                     @empty

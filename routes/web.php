@@ -15,6 +15,8 @@ Route::group(['prefix' => 'entrenadores'], function(){
     Route::get('', [App\Http\Controllers\EntrenadorController::class, 'index'])->name('entrenador.index');
     Route::get('create', [App\Http\Controllers\EntrenadorController::class, 'create'])->name('entrenador.create');
     Route::post('store', [App\Http\Controllers\EntrenadorController::class, 'store'])->name('entrenador.store');
+    Route::get('{entrenador}/edit', [App\Http\Controllers\EntrenadorController::class, 'edit'])->name('entrenador.edit');
+    Route::put('{entrenador}', [App\Http\Controllers\EntrenadorController::class, 'update'])->name('entrenador.update');
 
 });
 
