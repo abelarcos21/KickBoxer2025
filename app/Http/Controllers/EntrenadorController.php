@@ -97,4 +97,13 @@ class EntrenadorController extends Controller
 
 
     }
+
+    //
+    public function destroy(Entrenador $entrenador){
+        $nombreEntrenador = $entrenador->primer_nombre;
+        $entrenador->delete();
+
+        return redirect()->route('entrenador.index')->with('success', 'El Entrenador'.$nombreEntrenador.' se Elimino Correctamente');
+
+    }
 }
