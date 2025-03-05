@@ -4,8 +4,8 @@
 
 <div class="app-title">
     <div>
-      <h1><i class="bi bi-ui-checks"></i> Form Samples</h1>
-      <p>Sample forms</p>
+      <h1><i class="bi bi-ui-checks"></i> Jueces</h1>
+      <p>Lista Jueces</p>
     </div>
     <ul class="app-breadcrumb breadcrumb">
       <li class="breadcrumb-item"><i class="bi bi-house-door fs-6"></i></li>
@@ -18,7 +18,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card shadow">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header bg-primary text-white text-center">
                         <h4 class="mb-0">Registro de Juez</h4>
                     </div>
 
@@ -265,8 +265,9 @@
                                 </div>
                             </div>
 
-                            <div class="d-grid mt-4">
-                                <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+                            <div class="d-flex justify-content-between">
+                                <a href="{{ route('juez.index') }}" class="btn btn-secondary"><i class="bi bi-x-circle-fill me-2"></i>Cancelar</a>
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle-fill me-2"></i>Guardar Juez</button>
                             </div>
                         </form>
                     </div>

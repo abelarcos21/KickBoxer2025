@@ -27,6 +27,9 @@ Route::group(['prefix' => 'jueces'], function(){
     Route::get('', [App\Http\Controllers\JuezController::class, 'index'])->name('juez.index');
     Route::get('create', [App\Http\Controllers\JuezController::class, 'create'])->name('juez.create');
     Route::post('store', [App\Http\Controllers\JuezController::class, 'store'])->name('juez.store');
+    Route::get('{juez}/edit', [App\Http\Controllers\JuezController::class, 'edit'])->name('juez.edit');
+    Route::put('{juez}', [App\Http\Controllers\JuezController::class, 'update'])->name('juez.update');
+    Route::delete('{juez}', [App\Http\Controllers\JuezController::class, 'destroy'])->name('juez.destroy');
 
 });
 

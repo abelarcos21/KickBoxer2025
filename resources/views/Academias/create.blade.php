@@ -121,8 +121,8 @@
             </div>
 
             <div class="d-flex justify-content-between">
-                <a href="{{ route('academia.index') }}" class="btn btn-secondary">Cancelar</a>
-                <button type="submit" class="btn btn-primary">Guardar Academia</button>
+                <a href="{{ route('academia.index') }}" class="btn btn-secondary"><i class="bi bi-x-circle-fill me-2"></i>Cancelar</a>
+                <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle-fill me-2"></i>Guardar Academia</button>
             </div>
         </form>
     </div>

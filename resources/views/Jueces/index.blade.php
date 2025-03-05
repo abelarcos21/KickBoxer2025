@@ -44,7 +44,7 @@
                     <th>Correo</th>
                     <th>Telefono</th>
                     <th>Escolaridad</th>
-                    
+                    <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,7 +70,16 @@
                             <td>{{$juez->correo}}</td>
                             <td>{{$juez->telefono}}</td>
                             <td>{{$juez->escolaridad}}</td>
-                           
+                            <td>
+                                <form action="{{ route('juez.destroy', $juez)}}" method="POST">
+                                    @csrf 
+                                    @method('DELETE')
+                                    <div class="btn-group">
+                                        <a class="btn btn-primary btn-sm" href="{{route('juez.edit', $juez)}}"><i class="bi bi-pencil-square fs-5"></i>Editar</a>
+                                        <button onclick="return confirm('¿estas seguro de elimnar el Juez?')" class="btn btn-danger btn-sm" type="submit" ><i class="bi bi-trash fs-5"></i>Eliminar</button>
+                                    </div>
+                                </form>
+                            </td>
                         </tr>
                         
                     @empty
