@@ -27,7 +27,9 @@ class EntrenadorController extends Controller
             'segundo_nombre' => 'nullable|string|max:255',
             'apellido_paterno' => 'required|string|max:255',
             'apellido_materno' => 'required|string|max:255',
+            'año_nacimiento' => 'required|integer|digits:4',
             'fecha_nacimiento' => 'required|date',
+            'edad' => 'required|integer',
             'genero' => 'required|in:Masculino,Femenino,Otro',
             'nacionalidad' => 'required|string|max:255',
             'domicilio' => 'required|string|max:255',
@@ -45,6 +47,7 @@ class EntrenadorController extends Controller
         $fechaNacimiento = Carbon::parse($validated['fecha_nacimiento']);
         $validated['año_nacimiento'] = $fechaNacimiento->year;
         $validated['edad'] = $fechaNacimiento->age;
+        
 
         // Guardar en la base de datos
         Entrenador::create($validated);

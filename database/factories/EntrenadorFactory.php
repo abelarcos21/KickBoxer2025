@@ -18,7 +18,7 @@ class EntrenadorFactory extends Factory
      */
     public function definition(): array
     {
-        $fechaNacimiento = fake()->dateTimeBetween('-60 years', '-18 years');
+        $fechaNacimiento = fake()->dateTimeBetween('-60 years', '-20 years')->format('Y-m-d');
         $yearNacimiento = Carbon::parse($fechaNacimiento)->format('Y');
         $edad = Carbon::parse($fechaNacimiento)->diffInYears(now());
 

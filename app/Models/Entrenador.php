@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Entrenador extends Model
 {
     use HasFactory;
+    //DESACTIVAR LOS TIMESTAMPS
+    //public $timestamps = false;
     
     //campos que seran llenados
     protected $fillable=[
@@ -33,5 +35,9 @@ class Entrenador extends Model
         'escolaridad',
         'grado_kickboxing',
 
+    ];
+
+    protected $casts = [
+        'fecha_nacimiento' => 'date:Y-m-d', // Formato correcto
     ];
 }
