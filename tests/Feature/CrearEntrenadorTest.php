@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 class CrearEntrenadorTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase; //para refrescar la base de datos y vaciar ,no llenar la BD
 
     /**
      * A basic feature test example.
@@ -23,36 +23,35 @@ class CrearEntrenadorTest extends TestCase
 
         $entrenadorData = [
 
-                'curp' => 'ABCD123456HDFLRS07',
-                'primer_nombre' => 'Juan',
-                'segundo_nombre' => 'Carlos',
-                'apellido_paterno' => 'Pérez',
-                'apellido_materno' => 'Gómez',
-                'año_nacimiento' =>  1985,
-                'fecha_nacimiento' =>  '1985-03-19',
-                'edad' =>  40,
-                'genero' => 'Masculino',
-                'nacionalidad' => 'Mexicana',
-                'domicilio' => 'Av. Siempre Viva 123',
-                'colonia' => 'Centro',
-                'municipio' => 'CDMX',
-                'codigo_postal' => '01000',
-                'estado' => 'CDMX',
-                'correo' => 'juan.perez@example.com',
-                'telefono' => '5512345678',
-                'escolaridad' => 'Licenciatura',
-                'grado_kickboxing' => 'Cinturón Negro',
+            'curp' => 'ABCD123456HDFLRS07',
+            'primer_nombre' => 'Juan',
+            'segundo_nombre' => 'Carlos',
+            'apellido_paterno' => 'Pérez',
+            'apellido_materno' => 'Gómez',
+            'año_nacimiento' =>  1985,
+            'fecha_nacimiento' =>  '1985-03-19',
+            'edad' =>  40,
+            'genero' => 'Masculino',
+            'nacionalidad' => 'Mexicana',
+            'domicilio' => 'Av. Siempre Viva 123',
+            'colonia' => 'Centro',
+            'municipio' => 'CDMX',
+            'codigo_postal' => '01000',
+            'estado' => 'CDMX',
+            'correo' => 'juan.perez@example.com',
+            'telefono' => '5512345678',
+            'escolaridad' => 'Licenciatura',
+            'grado_kickboxing' => 'Cinturón Negro',
 
         ];
 
         //ACTUAR(ACT)
-        $response = $this->post('/entrenadores/store', $entrenadorData);
+        
+        $response = $this->post(route('entrenador.store', $entrenadorData));
 
         //AFIRMACION(ASSERT)
-        //$response = $this->get(route('entrenador.store'));
+        
         $response->assertStatus(302);// Código 201 Created
-               //  ->assertJson(['message' => 'Entrenador creado exitosamente']);
-        //$this->assertDatabaseHas('entrenadors', $entrenadorData);
 
 
         $this->assertDatabaseHas('entrenadors', $entrenadorData);
