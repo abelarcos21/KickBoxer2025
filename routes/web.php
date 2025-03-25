@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+//-------------------------------------RUTA PARA DESCARGAR PDF
+use App\Http\Controllers\PDFController;
+Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('entrenadorPDF');
+//-----------------------------------------------------------------------------------------------------------------------------
+
 Route::get('/', function () {
     return view('welcome');
 });

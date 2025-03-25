@@ -16,8 +16,8 @@
     
     <div class="col-md-8 col-md-offset-3">
         <a class="btn btn-primary" href="{{route('entrenador.create')}}"><i class="bi bi-plus-square me-2"></i>Agregar Nuevo</a>&nbsp;&nbsp;&nbsp;
-        <a class="btn btn-primary" href="{{route('home')}}"><i class="bi bi-journal-text me-2"></i>Excel</a>&nbsp;&nbsp;&nbsp;
-        <a class="btn btn-primary" href="{{route('home')}}"><i class="bi bi-printer me-2"></i>Pdf</a>
+        <a class="btn btn-primary" href="{{route('home')}}"><i class="bi bi-journal-text me-2"></i>Exportar Excel</a>&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-primary" href="{{route('entrenadorPDF')}}"><i class="bi bi-printer me-2"></i>Reporte PDF</a>
     </div>
     
     <div class="row">
@@ -65,7 +65,7 @@
                             <td>{{$entrenador->edad}}</td>
                             <td>{{$entrenador->genero}}</td>
                             <td>{{$entrenador->nacionalidad}}</td>
-                            <td>{{$entrenador->domicilio}}</td>
+                        <td>{{$entrenador->domicilio}}</td>
                             <td>{{$entrenador->colonia}}</td>
                             <td>{{$entrenador->municipio}}</td>
                             <td>{{$entrenador->codigo_postal}}</td>
