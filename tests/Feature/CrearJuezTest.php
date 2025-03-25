@@ -5,23 +5,21 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use Carbon\Carbon;
 
-class CrearEntrenadorTest extends TestCase
+class CrearJuezTest extends TestCase
 {
     use RefreshDatabase; //para refrescar la base de datos y vaciar ,no llenar la BD
 
     /**
      * A basic feature test example.
      */
-    public function test_an_entrenador_can_be_created(): void
+    public function test_an_juez_can_be_created(): void
     {
         //ARRANGE(PREPARAR)
 
         $this->withoutExceptionHandling();
 
-
-        $entrenadorData = [
+        $juezData = [
 
             'curp' => 'ABCD123456HDFLRS07',
             'primer_nombre' => 'Juan',
@@ -41,19 +39,16 @@ class CrearEntrenadorTest extends TestCase
             'correo' => 'juan.perez@example.com',
             'telefono' => '5512345678',
             'escolaridad' => 'Licenciatura',
-            'grado_kickboxing' => 'Cinturón Negro',
+            
 
         ];
 
         //ACTUAR(ACT)
-        
-        $response = $this->post(route('entrenador.store', $entrenadorData));
+        $response = $this->post(route('juez.store', $juezData));
 
         //AFIRMACION(ASSERT)
-        
         $response->assertStatus(302);//Código 302 si tiene un redirect despues de la creacion
 
-
-        $this->assertDatabaseHas('entrenadors', $entrenadorData);
+        $this->assertDatabaseHas('juezs', $juezData);
     }
 }

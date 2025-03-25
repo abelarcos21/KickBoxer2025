@@ -28,6 +28,9 @@ class Juez extends Model
         'correo',
         'telefono',
         'escolaridad',
+    ];
 
+    protected $casts = [
+        'fecha_nacimiento' => 'date:Y-m-d',  // Formato correcto de fecha
     ];
 }
