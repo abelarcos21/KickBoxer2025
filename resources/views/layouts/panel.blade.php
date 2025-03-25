@@ -74,8 +74,8 @@
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-bs-toggle="dropdown" aria-label="Open Profile Menu"><i class="bi bi-person fs-4"></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="page-user.html"><i class="bi bi-gear me-2 fs-5"></i> Configuracion</a></li>
-            <li><a class="dropdown-item" href="page-user.html"><i class="bi bi-person me-2 fs-5"></i> Mi Perfil</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2 fs-5"></i> Configuracion</a></li>
+            <li><a class="dropdown-item" href="{{route('configuracion.index')}}"><i class="bi bi-person me-2 fs-5"></i> Mi Perfil</a></li>
             <li><a class="dropdown-item"  onclick="event.preventDefault(); document.getElementById('formLogout').submit();"  href="{{route('logout')}}"><i class="bi bi-box-arrow-right me-2 fs-5"></i> Cerrar Sesion</a></li>
             <form action="{{route('logout')}}" method="POST" style="display: none;" id="formLogout">
               @csrf

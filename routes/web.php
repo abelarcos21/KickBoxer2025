@@ -58,3 +58,9 @@ Route::group(['prefix' => 'asociaciones'], function(){
 
 });
 
+//RUTAS PARA CONFIGURACION DE CUENTA(PERFIL)
+Route::group(['prefix' => 'configuracion'], function(){
+    Route::get('', [App\Http\Controllers\ConfiguracionController::class, 'index'])->name('configuracion.index');
+
+});
+
