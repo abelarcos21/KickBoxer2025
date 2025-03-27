@@ -61,11 +61,11 @@
                             <td>{{$entrenador->apellido_paterno}}</td>
                             <td>{{$entrenador->apellido_materno}}</td>
                             <td>{{$entrenador->año_nacimiento}}</td>
-                            <td>{{$entrenador->fecha_nacimiento}}</td>
+                            <td>{{$entrenador->fecha_nacimiento->format('Y-m-d')}}</td>
                             <td>{{$entrenador->edad}}</td>
                             <td>{{$entrenador->genero}}</td>
                             <td>{{$entrenador->nacionalidad}}</td>
-                        <td>{{$entrenador->domicilio}}</td>
+                            <td>{{$entrenador->domicilio}}</td>
                             <td>{{$entrenador->colonia}}</td>
                             <td>{{$entrenador->municipio}}</td>
                             <td>{{$entrenador->codigo_postal}}</td>

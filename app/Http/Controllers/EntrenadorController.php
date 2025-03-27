@@ -20,6 +20,8 @@ class EntrenadorController extends Controller
 
     public function store(Request $request){
 
+        //dd($request);
+
         // Validación de datos
         $validated = $request->validate([
             'curp' => 'required|string|max:18|unique:entrenadors',
@@ -27,9 +29,9 @@ class EntrenadorController extends Controller
             'segundo_nombre' => 'nullable|string|max:255',
             'apellido_paterno' => 'required|string|max:255',
             'apellido_materno' => 'required|string|max:255',
-            'año_nacimiento' => 'required|integer|digits:4',
+            //'año_nacimiento' => 'required|integer|digits:4', //campo calculado automatico mediante campo fecha_nacimiento
             'fecha_nacimiento' => 'required|date',
-            'edad' => 'required|integer',
+            //'edad' => 'required|integer', //campo calculado automatico mediante campo fecha_nacimiento
             'genero' => 'required|in:Masculino,Femenino,Otro',
             'nacionalidad' => 'required|string|max:255',
             'domicilio' => 'required|string|max:255',
@@ -43,8 +45,10 @@ class EntrenadorController extends Controller
             'grado_kickboxing' => 'nullable|string|max:255',
         ]);
 
-        // Calcular año de nacimiento y edad automáticamente
-        $fechaNacimiento = Carbon::parse($validated['fecha_nacimiento']);
+        $fechaNacimiento = Carbon::parse($validated['fecha_nacimiento']);//Instancia de Carbon para el formato  2023-01-01 
+        //-----------------------------------------------------------------------------------------------------------------
+
+        //Campos calculados año de nacimiento y edad, mediante el campo fecha_nacimiento  llenados automaticos ala BD
         $validated['año_nacimiento'] = $fechaNacimiento->year;
         $validated['edad'] = $fechaNacimiento->age;
         
