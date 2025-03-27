@@ -95,12 +95,10 @@
     <script src="{{asset('js/main.js')}}"></script>
 
     <!-- Page specific css-->
-    <link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css">
+    @yield('css')
 
     <!-- Data table plugin-->
-    <script type="text/javascript" src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/plugins/dataTables.bootstrap.min.js')}}"></script>
-    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    @yield('js')
 
     <!-- Google analytics script-->
     <script type="text/javascript">
