@@ -11,6 +11,8 @@ class Entrenador extends Model
     use HasFactory;
     //DESACTIVAR LOS TIMESTAMPS
     //public $timestamps = false;
+
+    protected $table = 'entrenadors';
     
     //campos que seran llenados
     protected $fillable=[

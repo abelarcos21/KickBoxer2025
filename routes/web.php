@@ -2,10 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-//-------------------------------------RUTA PARA DESCARGAR PDF
+//-------------------------------------RUTA PARA DESCARGAR PDF--------------------------------------------------
 use App\Http\Controllers\PDFController;
 Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('entrenadorPDF');
-//-----------------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------
+
+//-------------------------------------RUTAS PARA LISTA DE ENTRENADORES,SU IMPORTACION Y SU EXPORTACION EN EXCEL
+use App\Http\Controllers\EntrenadorExcelController;
+Route::get('entrenadores-export', [EntrenadorExcelController::class, 'export'])->name('entrenadores.export');
+Route::post('entrenadores-import', [EntrenadorExcelController::class, 'import'])->name('entrenadores.import');
+//---------------------------------------------------------------------------------------------------------------
 
 Route::get('/', function () {
     return view('welcome');

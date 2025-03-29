@@ -13,11 +13,40 @@
             <li class="breadcrumb-item active"><a href="{{route('entrenador.index')}}">Entrenadores</a></li>
         </ul>
     </div>
-    
-    <div class="col-md-8 col-md-offset-3">
-        <a class="btn btn-primary" href="{{route('entrenador.create')}}"><i class="bi bi-plus-square me-2"></i>Agregar Nuevo</a>&nbsp;&nbsp;&nbsp;
-        <a class="btn btn-primary" href="{{route('home')}}"><i class="bi bi-journal-text me-2"></i>Exportar Excel</a>&nbsp;&nbsp;&nbsp;
-        <a class="btn btn-primary" href="{{route('entrenadorPDF')}}"><i class="bi bi-printer me-2"></i>Reporte PDF</a>
+
+    {{-- d-flex convierte el contenedor en un flexbox.
+
+        justify-content-end alinea los elementos a la derecha.
+
+        gap-2 agrega un espacio entre elementos.
+
+        w-auto ajusta el ancho del input de archivo para que no se vea muy grande.
+
+    --}}
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <!-- Elementos alineados a la izquierda -->
+            <div class="d-flex gap-2">
+                
+                <a class="btn btn-primary" href="{{route('entrenador.create')}}"><i class="bi bi-plus-square me-2"></i>Agregar Nuevo</a>
+                <a class="btn btn-success" href="{{route('entrenadores.export')}}"><i class="bi bi-download"></i>Exportar Excel</a>
+                <a class="btn btn-warning" href="{{route('entrenadorPDF')}}"><i class="bi bi-file-earmark-pdf"></i>Reporte PDF</a>
+            </div>
+
+            
+
+            <!-- Elementos alineados a la derecha -->
+            <div class="d-flex gap-1">
+                <form action="{{ route('entrenadores.import') }}" method="POST" enctype="multipart/form-data" class="d-flex gap-2 align-items-center">
+                    @csrf
+            
+                    <input type="file" name="file" class="form-control w-auto">
+                    <button type="submit" class="btn btn-danger"><i class="bi bi-file-earmark-text"></i>Importar Datos CSV</button>
+                </form>
+            </div>
+            
+        </div>
     </div>
     
     <div class="row">
@@ -28,6 +57,7 @@
                 <table class="table table-hover table-bordered table-striped" id="sampleTable">
                 <thead>
                     <tr>
+                    <th>#</th>
                     <th>Curp</th>
                     <th>Primer Nombre</th>
                     <th>Segundo Nombre</th>
@@ -55,6 +85,7 @@
                     @forelse ($entrenadores as $entrenador)
 
                         <tr>
+                            <td>{{$entrenador->id}}</td>
                             <td>{{$entrenador->curp}}</td>
                             <td>{{$entrenador->primer_nombre}}</td>
                             <td>{{$entrenador->segundo_nombre}}</td>
