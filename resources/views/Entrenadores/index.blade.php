@@ -169,6 +169,11 @@
                         
                 </tbody>
                 </table>
+                <div class="d-flex justify-content-center">
+                    {{--AGREGAR FILTROS AUTOMATICAMENTE AL CAMBIAR DE PÁGINA Retener Filtros en la Paginación:--}}
+                    {{ $entrenadores->appends(request()->query())->links('pagination::bootstrap-5') }}
+
+                </div>
             </div>
             </div>
         </div>
