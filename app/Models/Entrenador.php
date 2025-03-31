@@ -12,7 +12,8 @@ class Entrenador extends Model
     //DESACTIVAR LOS TIMESTAMPS
     //public $timestamps = false;
 
-    protected $table = 'entrenadors';
+   // Define la tabla explícitamente
+   protected $table = 'entrenadors';
     
     //campos que seran llenados
     protected $fillable=[

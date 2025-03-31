@@ -35,16 +35,16 @@
             </div>
 
             
-
             <!-- Elementos alineados a la derecha -->
             <div class="d-flex gap-1">
                 <form action="{{ route('entrenadores.import') }}" method="POST" enctype="multipart/form-data" class="d-flex gap-2 align-items-center">
                     @csrf
             
                     <input type="file" name="file" class="form-control w-auto">
-                    <button type="submit" class="btn btn-danger"><i class="bi bi-file-earmark-text"></i>Importar Datos CSV</button>
+                    <button type="submit" class="btn btn-secondary"><i class="bi bi-file-earmark-text"></i>Importar Datos CSV</button>
                 </form>
             </div>
+            
             
         </div>
     </div>
@@ -54,6 +54,42 @@
         <div class="tile">
             <div class="tile-body">
             <div class="table-responsive">
+                <form method="GET" action="" class="mb-3">
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <div class="d-flex flex-wrap gap-2 w-100">
+                                <div class="flex-fill">
+                                    <label>CURP:</label>
+                                    <input type="text" name="curp" class="form-control" value="{{ request('curp') }}">
+                                </div>
+                                <div class="flex-fill">
+                                    <label>Apellido Paterno:</label>
+                                    <input type="text" name="apellido_paterno" class="form-control" value="{{ request('apellido_paterno') }}">
+                                </div>
+                                <div class="flex-fill">
+                                    <label>Año de Nacimiento:</label>
+                                    <input type="number" name="año_nacimiento" class="form-control" value="{{ request('año_nacimiento') }}">
+                                </div>
+                                <div class="flex-fill">
+                                    <label>Género:</label>
+                                    <select name="genero" class="form-select">
+                                        <option value="">Todos</option>
+                                        <option value="Masculino" {{ request('genero') == 'Masculino' ? 'selected' : '' }}>Masculino</option>
+                                        <option value="Femenino" {{ request('genero') == 'Femenino' ? 'selected' : '' }}>Femenino</option>
+                                    </select>
+                                </div>
+                                <div class="flex-fill">
+                                    <label>Grado Kickboxing:</label>
+                                    <input type="text" name="grado_kickboxing" class="form-control" value="{{ request('grado_kickboxing') }}">
+                                </div>
+                                <div class="d-flex align-items-end">
+                                    <button type="submit" class="btn btn-secondary"><i class="bi bi-funnel me-1 fs-5"></i>Filtrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
                 <table class="table table-hover table-bordered table-striped" id="sampleTable">
                 <thead>
                     <tr>
@@ -121,7 +157,7 @@
                         
                     @empty
 
-                        <span>no hay datos que mostrar</span>
+                        <span><h5>No hay datos que mostrar</h5></span>
                         
                     @endforelse
                         
@@ -137,18 +173,18 @@
 @section('css')
 
     <!-- Page specific css-->
-    <link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css">
+    {{--<link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css">--}}
     
 @stop
 
 @section('js')
    
     <!-- Data table plugin-->
-    <script type="text/javascript" src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
+    {{--<script type="text/javascript" src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/plugins/dataTables.bootstrap.min.js')}}"></script>
     <script type="text/javascript">
         $('#sampleTable').DataTable();
-    </script>
+    </script>--}}
     
     
 @stop

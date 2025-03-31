@@ -9,6 +9,7 @@ use App\Exports\EntrenadoresExport;
 use App\Imports\EntrenadoresImport;
 use App\Models\Entrenador;
 
+
 class EntrenadorExcelController extends Controller
 {
     //
@@ -20,20 +21,27 @@ class EntrenadorExcelController extends Controller
 
     //
     public function import(Request $request){
-
+        
         // Validar los datos de la solicitud entrante
         $request->validate([
-            'file' => 'required|max:2048|mimes:csv,txt',
+            'file' => 'required|file|max:2048|mimes:csv,txt,xlsx',
         ]);
 
-        //$file = $request->file('file');
+        $file = $request->file('file');
         //dd($file->getClientOriginalName(), $file->getMimeType());
 
+        //$fileName = $request->file('file')->getClientOriginalName();
+        //$request->file('file')->move(public_path(), $fileName);
+        //dd($request->file('file')->getRealPath());
+
+
         try {
-            Excel::import(new EntrenadoresImport, $request->file('file'));
+            Excel::import(new EntrenadoresImport, $file);
             return redirect()->back()->with('success', 'Entrenadores importados correctamente.');
+        } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+            return redirect()->back()->with('error', 'Error de validación: ' . $e->getMessage());
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Error al importar: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Error inesperado: ' . $e->getMessage());
         }
 
 
