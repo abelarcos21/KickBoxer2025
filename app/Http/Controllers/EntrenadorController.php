@@ -8,10 +8,20 @@ use Carbon\Carbon;
 
 class EntrenadorController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
-        $entrenadores = Entrenador::all();
+        //El código del controlador queda más limpio y legible usando scopes:
+        $entrenadores = Entrenador::curp($request->curp)
+        ->apellidoPaterno($request->apellido_paterno)
+        ->añoNacimiento($request->año_nacimiento)
+        ->genero($request->genero)
+        ->gradoKickboxing($request->grado_kickboxing)
+        ->paginate(10);
+
         return view('entrenadores.index', compact('entrenadores'));
+
+        //$entrenadores = Entrenador::all();
+        //return view('entrenadores.index', compact('entrenadores'));
     }
 
     public function create(){

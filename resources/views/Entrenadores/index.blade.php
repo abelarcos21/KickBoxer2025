@@ -54,12 +54,12 @@
         <div class="tile">
             <div class="tile-body">
             <div class="table-responsive">
-                <form method="GET" action="" class="mb-3">
+                <form method="GET" action="{{ route('entrenador.index') }}" class="mb-3">
                     <div class="row g-3">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="d-flex flex-wrap gap-2 w-100">
                                 <div class="flex-fill">
-                                    <label>CURP:</label>
+                                    <label>Curp:</label>
                                     <input type="text" name="curp" class="form-control" value="{{ request('curp') }}">
                                 </div>
                                 <div class="flex-fill">
@@ -82,9 +82,15 @@
                                     <label>Grado Kickboxing:</label>
                                     <input type="text" name="grado_kickboxing" class="form-control" value="{{ request('grado_kickboxing') }}">
                                 </div>
-                                <div class="d-flex align-items-end">
+                               {{--<div class="d-flex align-items-end">
                                     <button type="submit" class="btn btn-secondary"><i class="bi bi-funnel me-1 fs-5"></i>Filtrar</button>
+                                    
+                                </div>--}}
+                                <div class="d-flex align-items-end gap-2">
+                                    <button type="submit" class="btn btn-secondary"><i class="bi bi-funnel me-1 fs-5"></i>Filtrar</button>
+                                    <a href="{{route('entrenador.index')}}" class="btn btn-secondary"><i class="bi bi-arrow-clockwise fs-5"></i>Limpiar</a>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>

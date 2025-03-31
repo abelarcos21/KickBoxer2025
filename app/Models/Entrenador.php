@@ -43,4 +43,35 @@ class Entrenador extends Model
     protected $casts = [
         'fecha_nacimiento' => 'date:Y-m-d', // Formato correcto
     ];
+
+    //uso de los SCOPES EN LARAVEL Usar scopes en el modelo facilita el filtrado reutilizable.
+    // Scope para CURP
+    public function scopeCurp($query, $curp)
+    {
+        return $curp ? $query->where('curp', 'LIKE', "%$curp%") : $query;
+    }
+
+    // Scope para Apellido Paterno
+    public function scopeApellidoPaterno($query, $apellido)
+    {
+        return $apellido ? $query->where('apellido_paterno', 'LIKE', "%$apellido%") : $query;
+    }
+
+    // Scope para Año de Nacimiento
+    public function scopeAñoNacimiento($query, $año)
+    {
+        return $año ? $query->where('año_nacimiento', $año) : $query;
+    }
+
+    // Scope para Género
+    public function scopeGenero($query, $genero)
+    {
+        return $genero ? $query->where('genero', $genero) : $query;
+    }
+
+    // Scope para Grado Kickboxing
+    public function scopeGradoKickboxing($query, $grado)
+    {
+        return $grado ? $query->where('grado_kickboxing', 'LIKE', "%$grado%") : $query;
+    }
 }
