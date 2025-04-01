@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes; // ✅ Importa SoftDeletes
 
 
 class Entrenador extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes ;
     //DESACTIVAR LOS TIMESTAMPS
     //public $timestamps = false;
 
@@ -43,6 +44,8 @@ class Entrenador extends Model
     protected $casts = [
         'fecha_nacimiento' => 'date:Y-m-d', // Formato correcto
     ];
+
+    protected $dates = ['deleted_at']; // Campo de eliminación
 
     //uso de los SCOPES EN LARAVEL Usar scopes en el modelo facilita el filtrado reutilizable.
     // Scope para CURP

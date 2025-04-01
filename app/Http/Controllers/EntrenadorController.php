@@ -115,12 +115,39 @@ class EntrenadorController extends Controller
 
     }
 
-    //
+    //ELIMINAR UN REGISTRO LOGICAMENTE
     public function destroy(Entrenador $entrenador){
+       
         $nombreEntrenador = $entrenador->primer_nombre;
-        $entrenador->delete();
+        $entrenador->delete();//softdelete
 
         return redirect()->route('entrenador.index')->with('success', 'El Entrenador'.$nombreEntrenador.' se Elimino Correctamente');
 
     }
+
+    //RESTAURAR UN REGISTRO ELIMINADO
+    public function restore($id){
+
+        $entrenador = Entrenador::withTrashed()->findOrFail($id);
+        $entrenador->restore(); // Restaurar el registro
+        return redirect()->route('entrenador.index')->with('success', 'Entrenador restaurado correctamente.');
+
+    }
+
+    // Mostrar registros eliminados
+    public function trashed()
+    {
+        $entrenadores = Entrenador::onlyTrashed()->get();
+        return view('entrenadoreseliminados.trashed', compact('entrenadores'));
+    }
+
+    // Eliminación permanente
+    public function forceDelete(Entrenador $entrenador)
+    {
+        $entrenador = Entrenador::withTrashed()->findOrFail($entrenador);
+        $entrenador->forceDelete();
+        return redirect()->route('entrenadores.index')->with('success', 'Entrenador eliminado permanentemente');
+    }
+    
+
 }

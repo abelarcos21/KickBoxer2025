@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\EntrenadorController;
+
 //-------------------------------------RUTA PARA DESCARGAR PDF--------------------------------------------------
 use App\Http\Controllers\PDFController;
 Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('entrenadorPDF');
@@ -29,6 +31,10 @@ Route::group(['prefix' => 'entrenadores'], function(){
     Route::get('{entrenador}/edit', [App\Http\Controllers\EntrenadorController::class, 'edit'])->name('entrenador.edit');
     Route::put('{entrenador}', [App\Http\Controllers\EntrenadorController::class, 'update'])->name('entrenador.update');
     Route::delete('{entrenador}', [App\Http\Controllers\EntrenadorController::class, 'destroy'])->name('entrenador.destroy');
+
+    Route::get('entrenadores-trashed', [EntrenadorController::class, 'trashed'])->name('entrenador.trashed');
+    Route::get('entrenadores-restore/{entrenador}', [EntrenadorController::class, 'restore'])->name('entrenador.restore');
+    Route::delete('entrenadores-force-delete/{entrenador}', [EntrenadorController::class, 'forceDelete'])->name('entrenador.forceDelete');
 
 });
 

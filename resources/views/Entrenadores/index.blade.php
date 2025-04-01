@@ -32,6 +32,7 @@
                 <a class="btn btn-primary" href="{{route('entrenador.create')}}"><i class="bi bi-plus-square me-2"></i>Agregar Nuevo</a>
                 <a class="btn btn-success" href="{{route('entrenadores.export')}}"><i class="bi bi-download"></i>Exportar Excel</a>
                 <a class="btn btn-secondary" href="{{route('entrenadorPDF')}}"><i class="bi bi-file-earmark-pdf"></i>Reporte PDF</a>
+                <a class="btn btn-warning" href="{{route('entrenador.trashed')}}"><i class="bi bi-trash fs-5"></i>Ver Eliminados</a>
             </div>
 
             
