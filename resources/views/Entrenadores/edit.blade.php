@@ -54,7 +54,7 @@
                                             class="form-control @error('fecha_nacimiento') is-invalid @enderror" 
                                             id="fecha_nacimiento" 
                                             name="fecha_nacimiento" 
-                                            value="{{ old('fecha_nacimiento', $entrenador->fecha_nacimiento) }}" 
+                                            value="{{ old('fecha_nacimiento', $entrenador->fecha_nacimiento->format('Y-m-d')) }}" 
                                             required>
                                         @error('fecha_nacimiento')
                                             <div class="invalid-feedback">{{ $message }}</div>
