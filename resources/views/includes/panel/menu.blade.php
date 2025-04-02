@@ -41,6 +41,7 @@
         
           </ul>
         </li>
+        <li><a class="app-menu__item" href="{{route('home')}}"><i class="bi bi-gear me-2 fs-5"></i><span class="app-menu__label">Configuracion</span></a></li>
        
       </ul>
     </aside>
