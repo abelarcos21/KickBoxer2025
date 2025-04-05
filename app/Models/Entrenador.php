@@ -15,7 +15,7 @@ class Entrenador extends Model
 
    // Define la tabla explícitamente
    protected $table = 'entrenadors';
-    
+
     //campos que seran llenados
     protected $fillable=[
 

@@ -135,16 +135,22 @@
                             <td>{{$entrenador->correo}}</td>
                             <td>{{$entrenador->telefono}}</td>
 
-                            <td >
+                            <td>
                                 <div class="d-flex gap-2">
-                                    <a class="btn btn-success btn-sm" href="{{route('entrenador.show', $entrenador)}}"><i class="bi bi-eye fs-5"></i>Ver</a>
-                                    <a class="btn btn-primary btn-sm" href="{{route('entrenador.edit', $entrenador)}}"><i class="bi bi-pencil-square fs-5"></i>Editar</a>
+
+                                    <a href="{{ route('entrenador.show', $entrenador) }}" class="btn btn-success btn-sm d-inline-flex align-items-center">
+                                        <i class="bi bi-eye fs-5"></i>
+                                        Ver
+                                    </a>
+                                    <a class="btn btn-primary btn-sm d-inline-flex align-items-center" href="{{route('entrenador.edit', $entrenador)}}">
+                                        <i class="bi bi-pencil-square fs-5"></i>
+                                        Editar
+                                    </a>
                                     <form action="{{ route('entrenador.destroy', $entrenador)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <div class="btn-group">
-
-                                            <button onclick="return confirm('¿estas seguro de elimnar el Entrenador?')" class="btn btn-danger btn-sm" type="submit" ><i class="bi bi-trash fs-5"></i>Eliminar</button>
+                                            <button onclick="return confirm('¿estas seguro de elimnar el Entrenador?')" class="btn btn-danger btn-sm d-inline-flex align-items-center" type="submit" ><i class="bi bi-trash fs-5"></i>Eliminar</button>
                                         </div>
                                     </form>
                                 </div>
