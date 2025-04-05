@@ -28,28 +28,28 @@
         <div class="d-flex justify-content-between align-items-center">
             <!-- Elementos alineados a la izquierda -->
             <div class="d-flex gap-2">
-                
+
                 <a class="btn btn-primary" href="{{route('entrenador.create')}}"><i class="bi bi-plus-square me-2"></i>Agregar Nuevo</a>
                 <a class="btn btn-success" href="{{route('entrenadores.export')}}"><i class="bi bi-download"></i>Exportar Excel</a>
                 <a class="btn btn-secondary" href="{{route('entrenadorPDF')}}"><i class="bi bi-file-earmark-pdf"></i>Reporte PDF</a>
                 <a class="btn btn-warning" href="{{route('entrenador.trashed')}}"><i class="bi bi-trash fs-5"></i>Ver Eliminados</a>
             </div>
 
-            
+
             <!-- Elementos alineados a la derecha -->
             <div class="d-flex gap-1">
                 <form action="{{ route('entrenadores.import') }}" method="POST" enctype="multipart/form-data" class="d-flex gap-2 align-items-center">
                     @csrf
-            
+
                     <input type="file" name="file" class="form-control w-auto">
                     <button type="submit" class="btn btn-success"><i class="bi bi-file-earmark-text"></i>Importar Datos CSV</button>
                 </form>
             </div>
-            
-            
+
+
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-md-12">
         <div class="tile">
@@ -85,18 +85,18 @@
                                 </div>
                                {{--<div class="d-flex align-items-end">
                                     <button type="submit" class="btn btn-secondary"><i class="bi bi-funnel me-1 fs-5"></i>Filtrar</button>
-                                    
+
                                 </div>--}}
                                 <div class="d-flex align-items-end gap-2">
                                     <button type="submit" class="btn btn-secondary"><i class="bi bi-funnel me-1 fs-5"></i>Filtrar</button>
                                     <a href="{{route('entrenador.index')}}" class="btn btn-secondary"><i class="bi bi-arrow-clockwise fs-5"></i>Limpiar</a>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
                 </form>
-                
+
                 <table class="table table-hover table-bordered table-striped" id="sampleTable">
                 <thead>
                     <tr>
@@ -150,24 +150,24 @@
                             <td>{{$entrenador->grado_kickboxing}}</td>
                             <td >
                                 <form action="{{ route('entrenador.destroy', $entrenador)}}" method="POST">
-                                    @csrf 
+                                    @csrf
                                     @method('DELETE')
                                     <div class="btn-group">
                                         <a class="btn btn-primary btn-sm" href="{{route('entrenador.edit', $entrenador)}}"><i class="bi bi-pencil-square fs-5"></i>Editar</a>
                                         <button onclick="return confirm('¿estas seguro de elimnar el Entrenador?')" class="btn btn-danger btn-sm" type="submit" ><i class="bi bi-trash fs-5"></i>Eliminar</button>
                                     </div>
                                 </form>
-                               
-                                
+
+
                             </td>
                         </tr>
-                        
+
                     @empty
 
                         <span><h5>No hay datos que mostrar</h5></span>
-                        
+
                     @endforelse
-                        
+
                 </tbody>
                 </table>
                 <div class="d-flex justify-content-center">
@@ -186,17 +186,17 @@
 
     <!-- Page specific css-->
     {{--<link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css">--}}
-    
+
 @stop
 
 @section('js')
-   
+
     <!-- Data table plugin-->
     {{--<script type="text/javascript" src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/plugins/dataTables.bootstrap.min.js')}}"></script>
     <script type="text/javascript">
         $('#sampleTable').DataTable();
     </script>--}}
-    
-    
+
+
 @stop
