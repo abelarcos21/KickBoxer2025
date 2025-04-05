@@ -55,13 +55,13 @@ class EntrenadorController extends Controller
             'grado_kickboxing' => 'nullable|string|max:255',
         ]);
 
-        $fechaNacimiento = Carbon::parse($validated['fecha_nacimiento']);//Instancia de Carbon para el formato  2023-01-01 
+        $fechaNacimiento = Carbon::parse($validated['fecha_nacimiento']);//Instancia de Carbon para el formato  2023-01-01
         //-----------------------------------------------------------------------------------------------------------------
 
         //Campos calculados año de nacimiento y edad, mediante el campo fecha_nacimiento  llenados automaticos ala BD
         $validated['año_nacimiento'] = $fechaNacimiento->year;
         $validated['edad'] = $fechaNacimiento->age;
-        
+
 
         // Guardar en la base de datos
         Entrenador::create($validated);
@@ -74,7 +74,12 @@ class EntrenadorController extends Controller
     public function edit(Entrenador $entrenador){
         return view('entrenadores.edit', compact('entrenador'));
     }
-    
+
+    //METODO PARA LLAMAR ALA VISTA SHOW(VER EL ENTRENADOR DATOS COMPLETOS)
+    public function show(Entrenador $entrenador){
+        return view('entrenadores.show', compact('entrenador'));
+    }
+
     //METODO PARA ACTUALIZAR LOS DATOS
     public function update(Request $request, Entrenador $entrenador){
 
@@ -99,7 +104,7 @@ class EntrenadorController extends Controller
             'grado_kickboxing' => 'nullable|string|max:255',
         ]);
 
-        
+
         // Calcular año de nacimiento y edad automáticamente
         $fechaNacimiento = Carbon::parse($validated['fecha_nacimiento']);
         $validated['año_nacimiento'] = $fechaNacimiento->year;
@@ -117,7 +122,7 @@ class EntrenadorController extends Controller
 
     //ELIMINAR UN REGISTRO LOGICAMENTE
     public function destroy(Entrenador $entrenador){
-       
+
         $nombreEntrenador = $entrenador->primer_nombre;
         $entrenador->delete();//softdelete
 
@@ -148,6 +153,6 @@ class EntrenadorController extends Controller
         $entrenador->forceDelete();
         return redirect()->route('entrenadores.index')->with('success', 'Entrenador eliminado permanentemente');
     }
-    
+
 
 }

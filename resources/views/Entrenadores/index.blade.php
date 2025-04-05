@@ -101,7 +101,6 @@
                 <thead>
                     <tr>
                     <th>#</th>
-                    <th>Curp</th>
                     <th>Primer Nombre</th>
                     <th>Segundo Nombre</th>
                     <th>Apellido Paterno</th>
@@ -110,16 +109,10 @@
                     <th>Fecha Nacimiento</th>
                     <th>Edad</th>
                     <th>Genero</th>
-                    <th>Nacionalidad</th>
                     <th>Domicilio</th>
-                    <th>Colonia</th>
-                    <th>Municipio</th>
-                    <th>Codigo Postal</th>
                     <th>Estado</th>
                     <th>Correo</th>
                     <th>Telefono</th>
-                    <th>Escolaridad</th>
-                    <th>Grado Kickboxing</th>
                     <th>Acciones</th>
                     </tr>
                 </thead>
@@ -129,7 +122,6 @@
 
                         <tr>
                             <td>{{$entrenador->id}}</td>
-                            <td>{{$entrenador->curp}}</td>
                             <td>{{$entrenador->primer_nombre}}</td>
                             <td>{{$entrenador->segundo_nombre}}</td>
                             <td>{{$entrenador->apellido_paterno}}</td>
@@ -138,26 +130,24 @@
                             <td>{{$entrenador->fecha_nacimiento->format('Y-m-d')}}</td>
                             <td>{{$entrenador->edad}}</td>
                             <td>{{$entrenador->genero}}</td>
-                            <td>{{$entrenador->nacionalidad}}</td>
                             <td>{{$entrenador->domicilio}}</td>
-                            <td>{{$entrenador->colonia}}</td>
-                            <td>{{$entrenador->municipio}}</td>
-                            <td>{{$entrenador->codigo_postal}}</td>
                             <td>{{$entrenador->estado}}</td>
                             <td>{{$entrenador->correo}}</td>
                             <td>{{$entrenador->telefono}}</td>
-                            <td>{{$entrenador->escolaridad}}</td>
-                            <td>{{$entrenador->grado_kickboxing}}</td>
-                            <td >
-                                <form action="{{ route('entrenador.destroy', $entrenador)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <div class="btn-group">
-                                        <a class="btn btn-primary btn-sm" href="{{route('entrenador.edit', $entrenador)}}"><i class="bi bi-pencil-square fs-5"></i>Editar</a>
-                                        <button onclick="return confirm('¿estas seguro de elimnar el Entrenador?')" class="btn btn-danger btn-sm" type="submit" ><i class="bi bi-trash fs-5"></i>Eliminar</button>
-                                    </div>
-                                </form>
 
+                            <td >
+                                <div class="d-flex gap-2">
+                                    <a class="btn btn-success btn-sm" href="{{route('entrenador.show', $entrenador)}}"><i class="bi bi-eye fs-5"></i>Ver</a>
+                                    <a class="btn btn-primary btn-sm" href="{{route('entrenador.edit', $entrenador)}}"><i class="bi bi-pencil-square fs-5"></i>Editar</a>
+                                    <form action="{{ route('entrenador.destroy', $entrenador)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <div class="btn-group">
+
+                                            <button onclick="return confirm('¿estas seguro de elimnar el Entrenador?')" class="btn btn-danger btn-sm" type="submit" ><i class="bi bi-trash fs-5"></i>Eliminar</button>
+                                        </div>
+                                    </form>
+                                </div>
 
                             </td>
                         </tr>

@@ -2,9 +2,9 @@
 {{--<div class="container">
     <h1>{{ $asociacion->nombre }}</h1>
 
-    
+
     <h3>Academias asociadas</h3>
-    
+
     <table class="table">
         <thead>
             <tr>
@@ -41,10 +41,10 @@
         </ul>
     </div>
     <div class="tile-title-w-btn">
-        <p><a class="btn btn-primary icon-btn" href={{route('asociacion.index')}}><i class="bi bi-reply fs-5"></i>Regresar	</a></p>
-        
+        <p><a class="btn btn-primary icon-btn" href={{route('asociacion.index')}}><i class="bi bi-reply fs-5"></i>Volver	</a></p>
+
     </div>
-    
+
     <div class="row">
         <div class="col-md-12">
         <div class="tile">
@@ -56,7 +56,7 @@
                     <th>#ID</th>
                     <th>Nombre de la Academia</th>
                     <th>Fecha Creacion</th>
-                    
+
                     </tr>
                 </thead>
                 <tbody>
@@ -67,15 +67,15 @@
                             <td>{{ $academia->id }}</td>
                             <td>{{ $academia->nombre }}</td>
                             <td>{{ $academia->created_at->format('d/m/Y') }}</td>
-                            
+
                         </tr>
-                        
+
                     @empty
 
                         <span>No cuenta con Academias</span>
-                        
+
                     @endforelse
-                        
+
                 </tbody>
                 </table>
             </div>
@@ -89,11 +89,11 @@
 
     <!-- Page specific css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css">
-    
+
 @stop
 
 @section('js')
-   
+
     <!-- Data table plugin-->
     <script type="text/javascript" src="{{asset('js/plugins/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/plugins/dataTables.bootstrap.min.js')}}"></script>
