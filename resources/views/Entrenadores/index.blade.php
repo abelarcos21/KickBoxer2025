@@ -101,6 +101,7 @@
                 <thead>
                     <tr>
                     <th>#</th>
+                    <th>Imagen</th>
                     <th>Primer Nombre</th>
                     <th>Segundo Nombre</th>
                     <th>Apellido Paterno</th>
@@ -122,6 +123,13 @@
 
                         <tr>
                             <td>{{$entrenador->id}}</td>
+                            <td>
+                                @if($entrenador->imagen)
+                                    <img loading="lazy" class="img-thumbnail" src="{{ asset('storage/' . $entrenador->imagen) }}" width="100px">
+                                @else
+                                    Sin foto
+                                @endif
+                            </td>
                             <td>{{$entrenador->primer_nombre}}</td>
                             <td>{{$entrenador->segundo_nombre}}</td>
                             <td>{{$entrenador->apellido_paterno}}</td>

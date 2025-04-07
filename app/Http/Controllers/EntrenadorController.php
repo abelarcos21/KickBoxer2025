@@ -35,6 +35,7 @@ class EntrenadorController extends Controller
         // Validación de datos
         $validated = $request->validate([
             'curp' => 'required|string|max:18|unique:entrenadors',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'primer_nombre' => 'required|string|max:255',
             'segundo_nombre' => 'nullable|string|max:255',
             'apellido_paterno' => 'required|string|max:255',
@@ -54,6 +55,12 @@ class EntrenadorController extends Controller
             'escolaridad' => 'required|string|max:255',
             'grado_kickboxing' => 'nullable|string|max:255',
         ]);
+
+        //guardar ruta dela imagen
+        if($request->hasFile('imagen')){
+            $rutaImagen = $request->file('imagen')->store('entrenadores', 'public');//guarda la imagen en storage app/public/entrenadores
+            $validated['imagen'] = $rutaImagen;//guarda la ruta de la img en la BD
+        }
 
         $fechaNacimiento = Carbon::parse($validated['fecha_nacimiento']);//Instancia de Carbon para el formato  2023-01-01
         //-----------------------------------------------------------------------------------------------------------------

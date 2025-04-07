@@ -20,6 +20,7 @@ class Entrenador extends Model
     protected $fillable=[
 
         'curp',
+        'imagen',
         'primer_nombre',
         'segundo_nombre',
         'apellido_paterno',
