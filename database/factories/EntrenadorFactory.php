@@ -24,6 +24,8 @@ class EntrenadorFactory extends Factory
 
         return [
             'curp' => strtoupper(Str::random(18)), // Formato simplificado
+            //'imagen' => fake()->imageUrl($width = 640, $height = 480, 'business' ), // $faker->imageUrl(640, 480, 'business'); // por categoría (opcional)
+            'imagen' => fake()->imageUrl($width = 640, $height = 480, 'cats', true, 'Faker', true),
             'primer_nombre' => fake()->firstName(),
             'segundo_nombre' => fake()->optional()->firstName(),
             'apellido_paterno' => fake()->lastName(),
@@ -41,11 +43,11 @@ class EntrenadorFactory extends Factory
             'correo' => fake()->unique()->safeEmail(),
             'telefono' => fake()->numerify('##########'), // 10 dígitos
             'escolaridad' => fake()->randomElement([
-                'Primaria', 
-                'Secundaria', 
-                'Preparatoria', 
-                'Licenciatura', 
-                'Maestría', 
+                'Primaria',
+                'Secundaria',
+                'Preparatoria',
+                'Licenciatura',
+                'Maestría',
                 'Doctorado'
             ]),
             'grado_kickboxing' => fake()->optional()->randomElement([

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Entrenador;
 use Carbon\Carbon;
+use Storage;
 
 class EntrenadorController extends Controller
 {
@@ -93,6 +94,7 @@ class EntrenadorController extends Controller
         // Validación de datos
         $validated = $request->validate([
             'curp' => 'required|string|max:18|unique:entrenadors',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'primer_nombre' => 'required|string|max:255',
             'segundo_nombre' => 'nullable|string|max:255',
             'apellido_paterno' => 'required|string|max:255',
@@ -111,6 +113,15 @@ class EntrenadorController extends Controller
             'grado_kickboxing' => 'nullable|string|max:255',
         ]);
 
+        if($request->hasFile('imagen')) {
+            // eliminar imagen anterior si existe
+            if ($validated['imagen'] && Storage::disk('public')->exists($validated['imagen'])) {
+                Storage::disk('public')->delete($validated['imagen']);
+            }
+
+            $rutaNueva = $request->file('imagen')->store('entrenadores', 'public');
+            $validated['imagen'] = $rutaNueva;
+        }
 
         // Calcular año de nacimiento y edad automáticamente
         $fechaNacimiento = Carbon::parse($validated['fecha_nacimiento']);
@@ -129,6 +140,10 @@ class EntrenadorController extends Controller
 
     //ELIMINAR UN REGISTRO LOGICAMENTE
     public function destroy(Entrenador $entrenador){
+
+        if ($entrenador->imagen && Storage::disk('public')->exists($entrenador->imagen)) {
+            Storage::disk('public')->delete($entrenador->imagen);
+        }
 
         $nombreEntrenador = $entrenador->primer_nombre;
         $entrenador->delete();//softdelete
