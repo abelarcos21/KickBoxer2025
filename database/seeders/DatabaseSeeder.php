@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             AcademiaSeeder::class,
             AfiliacionSeeder::class,
             AsociacionSeeder::class,
+            TorneoSeeder::class,
 
         ]);
     }

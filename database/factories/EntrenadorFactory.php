@@ -25,7 +25,7 @@ class EntrenadorFactory extends Factory
         return [
             'curp' => strtoupper(Str::random(18)), // Formato simplificado
             //'imagen' => fake()->imageUrl($width = 640, $height = 480, 'business' ), // $faker->imageUrl(640, 480, 'business'); // por categoría (opcional)
-            'imagen' => fake()->imageUrl($width = 640, $height = 480, 'cats', true, 'Faker', true),
+            'imagen' => fake()->imageUrl(640,480,'people'),
             'primer_nombre' => fake()->firstName(),
             'segundo_nombre' => fake()->optional()->firstName(),
             'apellido_paterno' => fake()->lastName(),

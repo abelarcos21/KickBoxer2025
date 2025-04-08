@@ -39,6 +39,18 @@ Route::group(['prefix' => 'entrenadores'], function(){
 
 });
 
+//RUTAS PARA TORNEOS
+Route::group(['prefix' => 'torneos'], function(){
+    Route::get('', [App\Http\Controllers\TorneoController::class, 'index'])->name('torneo.index');
+    Route::get('create', [App\Http\Controllers\TorneoController::class, 'create'])->name('torneo.create');
+    Route::post('store', [App\Http\Controllers\TorneoController::class, 'store'])->name('torneo.store');
+    Route::get('{torneo}/edit', [App\Http\Controllers\TorneoController::class, 'edit'])->name('torneo.edit');
+    Route::get('{torneo}/show', [App\Http\Controllers\TorneoController::class, 'show'])->name('torneo.show');
+    Route::put('{torneo}', [App\Http\Controllers\TorneoController::class, 'update'])->name('torneo.update');
+    Route::delete('{torneo}', [App\Http\Controllers\TorneoController::class, 'destroy'])->name('torneo.destroy');
+
+});
+
 
 //RUTAS PARA JUECES
 Route::group(['prefix' => 'jueces'], function(){
